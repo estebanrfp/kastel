@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour 
@@ -14,4 +17,12 @@ public class PlayerController : MonoBehaviour
 			
 			GetComponent<Rigidbody>().AddForce(movement * speed * Time.deltaTime);
 		}
+	void OnTriggerEnter(Collider other) {
+	{
+		if(other.gameObject.tag == "PickUp")
+		{
+			other.gameObject.SetActive(false);
+		}
 	}
+}
+}
